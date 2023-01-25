@@ -6,38 +6,35 @@ namespace ParenthesisExpression
     {
         static void Main(string[] args)
         {
-            string simbol = "(((())(())))";
+            const int Divider = 2;
+            const int Deductible = 1;
+
+            string simbol = "()";
             char leftSimbol = '(';
             char rightSimbol = ')';
-            int countLeft = 0;
-            int countRight = 0;
             int maximumDepth = 0;
 
             foreach (var item in simbol)
             {
                 if (item == leftSimbol)
                 {
-                    countLeft++;
+                    maximumDepth++;
                 }
                 else if (item == rightSimbol)
                 {
-                    countRight++;
+                    maximumDepth++;
                 }
             }
 
-            Console.WriteLine();
+            if (maximumDepth % Divider == 0)
+            {
+                maximumDepth = maximumDepth / Divider - Deductible;
 
-            countLeft--;
-            countRight--;
-            maximumDepth = countRight;
-
-            if (countLeft != countRight)
+                Console.WriteLine($"строка корректная и максимум глубины = {maximumDepth / Divider}");
+            }
+            else
             {
                 Console.WriteLine("строка не корректная");
-            }
-            else if (countLeft == countRight)
-            {
-                Console.WriteLine($"строка корректная и максимум глубины = {maximumDepth}");
             }
         }
     }
