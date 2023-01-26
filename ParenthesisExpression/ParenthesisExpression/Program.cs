@@ -6,13 +6,12 @@ namespace ParenthesisExpression
     {
         static void Main(string[] args)
         {
-            const int Divider = 2;
-            const int Deductible = 1;
-
             string simbol = "()";
             char leftSimbol = '(';
             char rightSimbol = ')';
             int maximumDepth = 0;
+            int divider = 2;
+            int deductible = 1;
 
             foreach (var item in simbol)
             {
@@ -25,12 +24,12 @@ namespace ParenthesisExpression
                     maximumDepth++;
                 }
             }
-
-            if (maximumDepth % Divider == 0)
+            
+            if (maximumDepth%divider==0)
             {
-                maximumDepth = maximumDepth / Divider - Deductible;
+                maximumDepth = maximumDepth / divider - deductible;
 
-                Console.WriteLine($"строка корректная и максимум глубины = {maximumDepth / Divider}");
+                Console.WriteLine($"строка корректная и максимум глубины = {maximumDepth}");
             }
             else
             {
